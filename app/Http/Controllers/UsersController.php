@@ -21,7 +21,7 @@ class UsersController extends Controller
  */
     public function create()
     {
-//
+        return view('admin/users.create');
     }
 
 /**
@@ -32,7 +32,17 @@ class UsersController extends Controller
  */
     public function store(Request $request)
     {
-//
+        $users = new Users;
+        $name = explode(" ", request('full_name'));
+        $users->first_name = $name[0];
+        $users->last_name = $name[1];
+        $users->username = request('username');
+        $users->password = sha1(request('password'));
+        $users->gender = request('gender');
+
+        if ($users->save()) {
+            redirect('/');
+        }
     }
 
 /**

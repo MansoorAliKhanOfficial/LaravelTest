@@ -1,9 +1,9 @@
 @extends('admin.layouts.master')
+@include('components')
+      <header class="header">
+      @yield('slider')
+      </header>
 @section('content')
-<div class="bpv" id="app-growl"></div>
-
-
-
 <div class="cd fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="bqx" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

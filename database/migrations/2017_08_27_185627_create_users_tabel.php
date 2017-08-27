@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateUsersTabel extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::dropIfExists('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->varchar('id');
+
             $table->timestamps();
         });
     }

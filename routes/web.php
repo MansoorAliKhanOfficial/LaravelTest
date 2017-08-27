@@ -11,19 +11,21 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/admin', function () {
+Route::any('/{page}', function ($page) {
     return view('admin.dashboard');
 });
-
-Route::any('{parent}/{page}', function ($parent, $page) {
-    if (view()->exists($parent . '.' . $page)) {
-        $data = [
-            "name" => "mansoor ali khan",
-        ];
-        return view()->make($parent . '.' . $page, $data);
-        // return view($parent . '.' . $page);
+Route::get('/contact', function () {
+    // redirect('/contact');
+    return view('contact');
+});
+Route::get('components', function () {
+    return view('components');
+});
+Route::get('admin/users/create', 'UsersController@create');
+Route::post('admin/users/store', 'UsersController@store');
+Route::any('{parent} / {page}', function ($parent, $page) {
+    if (view()->exists($parent . ' . ' . $page)) {
+        return view()->make($parent . ' . ' . $page, $data);
+        // return view($parent . ' . ' . $page);
     }
 });

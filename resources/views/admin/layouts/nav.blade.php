@@ -47,6 +47,9 @@
       <li class="qx active">
         <a class="qv" href="../admin">Home <span class="aet">(current)</span></a>
       </li>
+       <li class="qx active">
+        <a class="qv" href="../contact">Contact</a>
+      </li>
       <li class="qx">
         <a class="qv" href="../{{Request::segment(1)}}/profile">Profile</a>
       </li>
